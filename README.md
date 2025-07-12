@@ -46,7 +46,7 @@ A Spring Boot backend for an organizational carpooling system. This project allo
 
 ## API Documentation
 
-See [https://github.com/saurabhcr007/carpooling-backend/blob/master/carpooling/carpool/carpool/API_DOCUMENTATION.md](API_DOCUMENTATION.md) for full details on all endpoints, request/response formats, edge cases, and monitoring features.
+See [API_DOCUMENTATION.md](./API_DOCUMENTATION.md) for full details on all endpoints, request/response formats, edge cases, and monitoring features.
 
 ---
 
