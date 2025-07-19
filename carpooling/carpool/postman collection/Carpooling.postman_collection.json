@@ -1,0 +1,186 @@
+{
+  "info": {
+    "_postman_id": "carpooling-collection-001",
+    "name": "Carpooling API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Ride",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"startPoint\": \"Delhi\",\n  \"stops\": [\"Stop1\", \"Stop2\"],\n  \"destination\": \"Noida\",\n  \"dateTime\": \"2024-07-20T10:00:00\",\n  \"availableSeats\": 2,\n  \"companyUserId\": \"EMP1001\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/rides/create",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["rides", "create"]
+        }
+      }
+    },
+    {
+      "name": "Get All Rides",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/rides/all",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["rides", "all"]
+        }
+      }
+    },
+    {
+      "name": "Search Rides",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/rides/search?startPoint=Delhi&destination=Noida&date=2024-07-20&stop=Stop1&minSeats=1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["rides", "search"],
+          "query": [
+            { "key": "startPoint", "value": "Delhi" },
+            { "key": "destination", "value": "Noida" },
+            { "key": "date", "value": "2024-07-20" },
+            { "key": "stop", "value": "Stop1" },
+            { "key": "minSeats", "value": "1" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Delete Ride",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "http://localhost:8080/rides/{{rideId}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["rides", "{{rideId}}"]
+        }
+      }
+    },
+    {
+      "name": "Update Ride",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"startPoint\": \"Delhi\",\n  \"stops\": [\"Stop1\", \"Stop2\"],\n  \"destination\": \"Noida\",\n  \"dateTime\": \"2024-07-20T10:00:00\",\n  \"availableSeats\": 3,\n  \"companyUserId\": \"EMP1001\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/rides/{{rideId}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["rides", "{{rideId}}"]
+        }
+      }
+    },
+    {
+      "name": "Request to Join Ride",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"companyUserId\": \"EMP2002\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/rides/{{rideId}}/requests",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["rides", "{{rideId}}", "requests"]
+        }
+      }
+    },
+    {
+      "name": "Get Requests for Ride",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/rides/{{rideId}}/requests",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["rides", "{{rideId}}", "requests"]
+        }
+      }
+    },
+    {
+      "name": "Accept Ride Request",
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "http://localhost:8080/rides/{{rideId}}/requests/{{requestId}}/accept",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["rides", "{{rideId}}", "requests", "{{requestId}}", "accept"]
+        }
+      }
+    },
+    {
+      "name": "Reject Ride Request",
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "http://localhost:8080/rides/{{rideId}}/requests/{{requestId}}/reject",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["rides", "{{rideId}}", "requests", "{{requestId}}", "reject"]
+        }
+      }
+    },
+    {
+      "name": "Get Offered History",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/rides/history/offered?companyUserId=EMP1001",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["rides", "history", "offered"],
+          "query": [
+            { "key": "companyUserId", "value": "EMP1001" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Taken History",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/rides/history/taken?companyUserId=EMP2002",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["rides", "history", "taken"],
+          "query": [
+            { "key": "companyUserId", "value": "EMP2002" }
+          ]
+        }
+      }
+    }
+  ]
+} 
